@@ -54,7 +54,7 @@
                     <version>${maven.javadoc.plugin.version}</version>
                     <configuration>
                         <skip>${javadoc.skip}</skip>
-                        <source>8</source>
+                        <source>17</source>
                         <doclint>none</doclint>
                         <sourcepath>
                             ${project.build.sourceDirectory}:${project.build.directory}/generated-sources/annotations

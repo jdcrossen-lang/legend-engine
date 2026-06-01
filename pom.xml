@@ -141,10 +141,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.release>8</maven.compiler.release>
-        <maven.enforcer.requireJavaVersion>[11.0.10,12)</maven.enforcer.requireJavaVersion>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
+        <maven.enforcer.requireJavaVersion>[17,18)</maven.enforcer.requireJavaVersion>
         <maven.enforcer.requireMavenVersion>3.6.2</maven.enforcer.requireMavenVersion>
         <project.build.outputTimestamp>1779373603</project.build.outputTimestamp>
         <surefire.vm.params>-XX:-MaxFDLimit -XX:SoftRefLRUPolicyMSPerMB=1 -Duser.timezone=GMT</surefire.vm.params>
@@ -237,9 +237,9 @@
         <exec.maven.plugin.version>3.0.0</exec.maven.plugin.version>
         <jacoco.maven.plugin.version>0.8.10</jacoco.maven.plugin.version>
         <maven.checkstyle.plugin.version>3.1.1</maven.checkstyle.plugin.version>
-        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-        <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
-        <maven.enforcer.plugin.version>3.0.0-M1</maven.enforcer.plugin.version>
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+        <maven.dependency.plugin.version>3.6.1</maven.dependency.plugin.version>
+        <maven.enforcer.plugin.version>3.4.1</maven.enforcer.plugin.version>
         <maven.jar.plugin.version>3.1.2</maven.jar.plugin.version>
         <maven.javadoc.plugin.version>3.3.1</maven.javadoc.plugin.version>
         <maven.plugin.plugin.version>3.6.0</maven.plugin.plugin.version>
@@ -247,7 +247,7 @@
         <maven.resources.plugin.version>3.2.0</maven.resources.plugin.version>
         <maven.shade.plugin.version>3.4.1</maven.shade.plugin.version>
         <maven.source.plugin.version>3.2.0</maven.source.plugin.version>
-        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
         <versions.maven.plugin.version>2.7</versions.maven.plugin.version>
         <google.maven.download.plugin.version>1.8.1</google.maven.download.plugin.version>
 
@@ -297,7 +297,7 @@
                     <version>${maven.javadoc.plugin.version}</version>
                     <configuration>
                         <skip>${javadoc.skip}</skip>
-                        <source>8</source>
+                        <source>17</source>
                         <doclint>none</doclint>
                         <quiet>true</quiet>
                     </configuration>
@@ -509,6 +509,12 @@
                 <configuration>
                     <failOnWarning>true</failOnWarning>
                     <ignoreNonCompile>true</ignoreNonCompile>
+                    <!-- The "non-test scoped test only" detection was introduced by newer
+                         maven-dependency-plugin releases (required to parse Java 17 bytecode).
+                         Neutralize it to preserve the pre-upgrade analyze-only behavior. -->
+                    <ignoredNonTestScopedDependencies>
+                        <ignoredNonTestScopedDependency>*</ignoredNonTestScopedDependency>
+                    </ignoredNonTestScopedDependencies>
                 </configuration>
                 <executions>
                     <execution>
