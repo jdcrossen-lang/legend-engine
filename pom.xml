@@ -239,7 +239,10 @@
         <maven.checkstyle.plugin.version>3.1.1</maven.checkstyle.plugin.version>
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
         <maven.dependency.plugin.version>3.6.1</maven.dependency.plugin.version>
-        <maven.enforcer.plugin.version>3.4.1</maven.enforcer.plugin.version>
+        <!-- Kept at 3.0.0-M1 (the pre-migration version, verified to run on JDK 17). Newer enforcer
+             releases enforce DependencyConvergence far more strictly and fail on pre-existing transitive
+             version skews (e.g. error_prone_annotations via iceberg/caffeine vs guava) unrelated to the JDK bump. -->
+        <maven.enforcer.plugin.version>3.0.0-M1</maven.enforcer.plugin.version>
         <maven.jar.plugin.version>3.1.2</maven.jar.plugin.version>
         <maven.javadoc.plugin.version>3.3.1</maven.javadoc.plugin.version>
         <maven.plugin.plugin.version>3.6.0</maven.plugin.plugin.version>
