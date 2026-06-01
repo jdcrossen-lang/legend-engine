@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM eclipse-temurin:11.0.17_8-jdk-jammy
+FROM eclipse-temurin:17-jdk-jammy
 COPY target/legend-engine-pure-ide-light-*.jar /app/bin/
 COPY src/main/resources/ideLightConfig.json /config/config.json
 CMD java -cp /app/bin/*-shaded.jar \
