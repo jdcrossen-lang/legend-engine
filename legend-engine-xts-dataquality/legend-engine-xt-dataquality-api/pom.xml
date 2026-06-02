@@ -11,11 +11,6 @@
     <packaging>jar</packaging>
     <name>Legend Engine - XT - DataQuality - Api</name>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
-
     <dependencies>
 
         <!-- PURE -->
