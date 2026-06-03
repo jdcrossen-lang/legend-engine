@@ -9,12 +9,6 @@
 
     <name>Legend Engine - XT - Identity - privateKey</name>
     <artifactId>legend-engine-xt-identity-privateKey</artifactId>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.finos.legend.engine</groupId>
