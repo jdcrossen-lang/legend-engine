@@ -10,11 +10,6 @@
     <artifactId>legend-engine-xt-dataquality-grammar</artifactId>
     <name>Legend Engine - XT - DataQuality - Grammar</name>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
